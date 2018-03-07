@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-require("./models/Trial_data");
+require("./models/Binary_data");
 mongoose.connect(process.env.DATABASE_URL);
 
 const app = express();
