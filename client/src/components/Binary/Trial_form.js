@@ -4,7 +4,7 @@ import BinaryContainer from "./Binary_container";
 class Trial_form extends Component {
   constructor(props) {
     super(props);
-    this.state = { monkey_id: "", trial_number: 0, choices: [] };
+    this.state = { monkeyId: "", numberOfTrials: 0, choices: [] };
   }
 
   handleChange = event => {
@@ -14,31 +14,34 @@ class Trial_form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    for (var i = 0; i < this.state.trial_number; i++) {
+    for (var i = 0; i < this.state.numberOfTrials; i++) {
       this.state.choices.push({
         Choices_left: event.target["choiceLeft" + i].value,
         Choices_right: event.target["choiceRight" + i].value
       });
     }
-    console.log(this.state);
+    axios
+      .post("/trial_form", this.state)
+      .then(res => res)
+      .catch(err => console.log("Trial form err: ", err));
   };
 
   setTrial = () => {
-    var indents = [];
-    for (var i = 0; i < this.state.trial_number; i++) {
-      indents.push(
+    const inputs = [];
+    for (var i = 0; i < this.state.numberOfTrials; i++) {
+      inputs.push(
         <div key={i}>
           <p>{i}</p>
           <label htmlFor={i}>Choice left</label>
           <input
-            className="indent"
+            className="inputs"
             type="text"
             id={i}
             name={`choiceLeft${i}`}
           />
           <label htmlFor={i}>Choice right</label>
           <input
-            className="indent"
+            className="inputs"
             type="text"
             id={i}
             name={`choiceRight${i}`}
@@ -46,8 +49,7 @@ class Trial_form extends Component {
         </div>
       );
     }
-    console.log(indents);
-    return indents;
+    return inputs;
   };
 
   render() {
@@ -59,7 +61,7 @@ class Trial_form extends Component {
           <input
             type="text"
             id="monkeyId"
-            name="monkey_id"
+            name="monkeyId"
             value={this.state.monkeyId}
             onChange={this.handleChange}
           />
@@ -67,7 +69,7 @@ class Trial_form extends Component {
           <input
             type="number"
             id="no_of_trial"
-            name="trial_number"
+            name="numberOfTrials"
             value={this.state.numberOfTrials}
             onChange={this.handleChange}
           />

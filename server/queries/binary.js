@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 const router = require("express").Router();
 
-const TrialsData = mongoose.model("trialsData");
-
-router.post("/monkeyId", (req, res) => {
+mongoose.connect(process.env.DATABASE_URL);
+const { connection } = mongoose;
+router.post("/trial_form", (req, res) => {
   console.log("bodyyyyyyyy: ", req.body);
-  TrialsData.create({ monkeyId: req.body.monkey_id });
+  req.body.timestamp = new Date();
+  connection.collection("trialsData").insert(req.body);
   res.send("hello");
 });
 
