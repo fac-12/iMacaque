@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
-import Static from "./components/Landing/Static";
-import Binary from "./components/Landing/Binary";
+import MonkeyId from "./components/Binary/Monkey_id";
 
 class App extends Component {
   render() {
@@ -10,7 +9,7 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/monkeyId" component={Static} />
+          <Route exact path="/monkeyId" component={MonkeyId} />
         </Switch>
       </BrowserRouter>
     );
