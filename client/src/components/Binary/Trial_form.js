@@ -4,8 +4,7 @@ import BinaryContainer from "./Binary_container";
 class Trial_form extends Component {
   constructor(props) {
     super(props);
-    // this.state = { monkeyId: "", numberOfTrials: "" };
-    this.state = { monkey_id: "", trial_number: 0 };
+    this.state = { monkey_id: "", trial_number: 0, choices: [] };
   }
 
   handleChange = event => {
@@ -15,32 +14,42 @@ class Trial_form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    for (var i = 0; i < this.state.trial_number; i++) {
+      this.state.choices.push({
+        Choices_left: event.target["choiceLeft" + i].value,
+        Choices_right: event.target["choiceRight" + i].value
+      });
+    }
     console.log(this.state);
   };
 
-  // var indents = [];
-  // for (var i = 0; i < this.props.level; i++) {
-  //   indents.push(<span className='indent' key={i}></span>);
-  // }
-  // return indents;
   setTrial = () => {
-    console.log(this.state.trial_number);
-
     var indents = [];
     for (var i = 0; i < this.state.trial_number; i++) {
       indents.push(
         <div key={i}>
           <p>{i}</p>
-          <label htmlFor="${i}">Choice left</label>
-          <input className="indent" type="text" id="${i}" />
-          <label htmlFor="${i}">Choice right</label>
-          <input className="indent" type="text" id="${i}" />
+          <label htmlFor={i}>Choice left</label>
+          <input
+            className="indent"
+            type="text"
+            id={i}
+            name={`choiceLeft${i}`}
+          />
+          <label htmlFor={i}>Choice right</label>
+          <input
+            className="indent"
+            type="text"
+            id={i}
+            name={`choiceRight${i}`}
+          />
         </div>
       );
     }
     console.log(indents);
     return indents;
   };
+
   render() {
     return (
       <div>
