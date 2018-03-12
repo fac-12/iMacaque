@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("./models/Binary_data");
+require("./models/Trials_data");
 const path = require("path");
 const bodyParser = require("body-parser");
 

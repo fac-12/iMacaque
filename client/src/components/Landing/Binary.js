@@ -5,7 +5,7 @@ class Binary extends Component {
   render() {
     return (
       <div>
-        <Link to="/monkeyId"> Binary Test </Link>
+        <Link to="/trial_form"> Binary Test </Link>
       </div>
     );
   }

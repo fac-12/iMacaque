@@ -5,8 +5,7 @@ const { Schema } = mongoose;
 const trialsDataSchema = new Schema({
   monkeyId: String,
   numberOfTrials: Number,
-  choiceLeft: String,
-  choiceRight: String,
+  choices: Array,
   timestamp: Date
 });
 

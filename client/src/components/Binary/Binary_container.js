@@ -4,7 +4,7 @@ class BinaryContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Binary</h1>
+        <input type="text" />
       </div>
     );
   }
