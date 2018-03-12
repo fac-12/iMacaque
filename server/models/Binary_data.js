@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const binaryDataSchema = new Schema({
   trialId: Number,
   trialKey: Number,
-  monkeyId: Number,
+  monkeyId: String,
   choiceLeft: String,
   choiceRight: String,
   decisionTime: String,

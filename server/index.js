@@ -1,12 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("./models/Binary_data");
 const path = require("path");
 const bodyParser = require("body-parser");
 
 const app = express();
-app.use(bodyParser.json());
+
 const routes = require("./queries/binary");
-require("./models/Binary_data");
+
+app.use(bodyParser.json());
+require("env2")("./config.env");
 
 mongoose.connect(process.env.DATABASE_URL);
 
