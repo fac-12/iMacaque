@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const staticDataSchema = new Schema({
     trialId: Number,
-    monkeyId: Number,
+    monkeyId: String,
     option1: Boolean,
     option2: Boolean,
     option3: Boolean,
