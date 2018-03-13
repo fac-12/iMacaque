@@ -11,8 +11,9 @@ class StartWebcam extends Component {
 
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
+    const id = this.props.match.params.trialId;
     console.log("image source: ", imageSrc);
-    this.props.history.push("/binary_plus");
+    this.props.history.push(`/binary_plus/${id}`);
     // axios
     //   .post(
     //     `https://www.googleapis.com/urlshortener/v1/url?key=${

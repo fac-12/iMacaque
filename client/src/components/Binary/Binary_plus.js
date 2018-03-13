@@ -4,7 +4,8 @@ import { browserHistory } from "react-router";
 class BinaryPlus extends Component {
   componentDidMount() {
     setTimeout(() => {
-      this.props.history.push("/choice_appear");
+      const id = this.props.match.params.trialId;
+      this.props.history.push(`/choice_appear/${id}`);
     }, 5000);
   }
   render() {

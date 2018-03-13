@@ -12,6 +12,7 @@ class Trial_form extends Component {
   handleChange = event => {
     const target = event.target;
     this.setState({ trialId: randomId(), [target.name]: target.value });
+    console.log("state: ", this.state);
   };
 
   handleSubmit = event => {
@@ -26,7 +27,8 @@ class Trial_form extends Component {
       .post("/trial_form", this.state)
       .then(res => console.log(res))
       .catch(err => console.log("Trial form err: ", err));
-    this.props.history.push("/trial_countdown");
+
+    this.props.history.push(`/trial_countdown/${this.state.trialId}`);
   };
 
   render() {

@@ -16,12 +16,16 @@ class App extends Component {
           <Route exact path="/trial_form" component={TrialForm} />
           <Route
             exact
-            path="/trial_countdown"
+            path="/trial_countdown/:trialId"
             component={StartTrialCountdown}
           />
-          <Route exact path="/start_webcam" component={StartWebcam} />
-          <Route exact path="/binary_plus" component={BinaryPlus} />
-          <Route exact path="/choice_appear" component={ChoicesAppear} />
+          <Route exact path="/start_webcam/:trialId" component={StartWebcam} />
+          <Route exact path="/binary_plus/:trialId" component={BinaryPlus} />
+          <Route
+            exact
+            path="/choice_appear/:trialId"
+            component={ChoicesAppear}
+          />
         </Switch>
       </BrowserRouter>
     );
