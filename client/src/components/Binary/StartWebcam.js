@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Webcam from "react-webcam";
+import axios from "axios";
+// import { REACT_APP_GOOGLE_API_KEY } from "../../../../../config";
 
 class StartWebcam extends Component {
   setRef = webcam => {
@@ -8,17 +10,29 @@ class StartWebcam extends Component {
 
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
-    console.log("hello: ", imageSrc);
+    console.log("image source: ", imageSrc);
+    axios
+      .post(
+        `https://www.googleapis.com/urlshortener/v1/url?key=${
+          process.env.GOOGLE_API_KEY
+        }`,
+        {
+          longUrl: `http://www.google.com`
+        }
+      )
+      .then(res => console.log("shorten url: ", res.data))
+      .catch(err => err);
   };
 
   render() {
+    console.log(process.env.REACT_APP_GOOGLE_API_KEY);
     return (
       <div onClick={this.capture}>
         <Webcam
           audio={false}
           height={700}
           ref={node => (this.webcam = node)}
-          screenshotFormat="image/jpeg"
+          screenshotFormat="image/webp"
           width={1000}
         />
       </div>
