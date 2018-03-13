@@ -12,7 +12,6 @@ class Trial_form extends Component {
   handleChange = event => {
     const target = event.target;
     this.setState({ trialId: randomId(), [target.name]: target.value });
-    console.log("state: ", this.state);
   };
 
   handleSubmit = event => {
