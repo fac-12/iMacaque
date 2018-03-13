@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import BinaryContainer from "./Binary_container";
+import setTrial from "../../helpers/setTrial";
 class Trial_form extends Component {
   constructor(props) {
     super(props);
@@ -26,32 +27,6 @@ class Trial_form extends Component {
       .catch(err => console.log("Trial form err: ", err));
   };
 
-  setTrial = () => {
-    const inputs = [];
-    for (var i = 0; i < this.state.numberOfTrials; i++) {
-      inputs.push(
-        <div key={i}>
-          <p>{i}</p>
-          <label htmlFor={i}>Choice left</label>
-          <input
-            className="inputs"
-            type="text"
-            id={i}
-            name={`choiceLeft${i}`}
-          />
-          <label htmlFor={i}>Choice right</label>
-          <input
-            className="inputs"
-            type="text"
-            id={i}
-            name={`choiceRight${i}`}
-          />
-        </div>
-      );
-    }
-    return inputs;
-  };
-
   render() {
     return (
       <div>
@@ -73,7 +48,7 @@ class Trial_form extends Component {
             value={this.state.numberOfTrials}
             onChange={this.handleChange}
           />
-          {this.setTrial()}
+          {setTrial(this.state.numberOfTrials)}
           <input type="submit" value="submit" />
         </form>
       </div>
