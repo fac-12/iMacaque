@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import BinaryContainer from "./Binary_container";
+import { browserHistory } from "react-router";
 import setTrial from "../../helpers/setTrial";
 class Trial_form extends Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class Trial_form extends Component {
       .post("/trial_form", this.state)
       .then(res => res)
       .catch(err => console.log("Trial form err: ", err));
+    this.props.history.push("/trial_countdown");
   };
 
   render() {
