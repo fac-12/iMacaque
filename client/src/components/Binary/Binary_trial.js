@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class BinaryContainer extends Component {
+class BinaryTrial extends Component {
   render() {
     return (
       <div>
-        <input type="text" />
+        <h1>BINARY TRIAL !!!!!!!!!</h1>
       </div>
     );
   }
 }
 
-export default BinaryContainer;
+export default BinaryTrial;
