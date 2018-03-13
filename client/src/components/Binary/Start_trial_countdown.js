@@ -5,7 +5,7 @@ import Countdown from "react-countdown-now";
 class StartTrialCountdown extends Component {
   startTrial = () => {
     console.log("start trial function!!!");
-    this.props.history.push("/binary_trial");
+    this.props.history.push("/start_webcam");
   };
 
   renderer = ({ minutes, seconds, completed }) => {

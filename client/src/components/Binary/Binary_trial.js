@@ -4,7 +4,7 @@ class BinaryTrial extends Component {
   render() {
     return (
       <div>
-        <h1>BINARY TRIAL !!!!!!!!!</h1>
+        <h1>+</h1>
       </div>
     );
   }

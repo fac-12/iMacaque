@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 import TrialForm from "./components/Binary/Trial_form";
 import StartTrialCountdown from "./components/Binary/Start_trial_countdown";
-import BinaryTrial from "./components/Binary/Binary_trial";
+import StartWebcam from "./components/Binary/StartWebcam";
 
 class App extends Component {
   render() {
@@ -17,7 +17,7 @@ class App extends Component {
             path="/trial_countdown"
             component={StartTrialCountdown}
           />
-          <Route exact path="/binary_trial" component={BinaryTrial} />
+          <Route exact path="/start_webcam" component={StartWebcam} />
         </Switch>
       </BrowserRouter>
     );
