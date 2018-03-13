@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 import TrialForm from "./components/Binary/Trial_form";
 import StartTrialCountdown from "./components/Binary/Start_trial_countdown";
-import BinaryTrial from "./components/Binary/Binary_trial";
+import StartWebcam from "./components/Binary/StartWebcam";
+import BinaryPlus from "./components/Binary/Binary_plus";
+import ChoicesAppear from "./components/Binary/Choices_appear";
 
 class App extends Component {
   render() {
@@ -14,10 +16,16 @@ class App extends Component {
           <Route exact path="/trial_form" component={TrialForm} />
           <Route
             exact
-            path="/trial_countdown"
+            path="/trial_countdown/:trialId"
             component={StartTrialCountdown}
           />
-          <Route exact path="/binary_trial" component={BinaryTrial} />
+          <Route exact path="/start_webcam/:trialId" component={StartWebcam} />
+          <Route exact path="/binary_plus/:trialId" component={BinaryPlus} />
+          <Route
+            exact
+            path="/choice_appear/:trialId"
+            component={ChoicesAppear}
+          />
         </Switch>
       </BrowserRouter>
     );

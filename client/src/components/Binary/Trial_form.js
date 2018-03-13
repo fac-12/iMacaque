@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import axios from "axios";
 import { browserHistory } from "react-router";
 import setTrial from "../../helpers/setTrial";
+import randomId from "../../helpers/random_id";
 class Trial_form extends Component {
   constructor(props) {
     super(props);
-    this.state = { monkeyId: "", numberOfTrials: 0, choices: [] };
+    this.state = { trialId: "", monkeyId: "", numberOfTrials: 0, choices: [] };
   }
 
   handleChange = event => {
     const target = event.target;
-    this.setState({ [target.name]: target.value });
+    this.setState({ trialId: randomId(), [target.name]: target.value });
+    console.log("state: ", this.state);
   };
 
   handleSubmit = event => {
@@ -23,9 +25,10 @@ class Trial_form extends Component {
     }
     axios
       .post("/trial_form", this.state)
-      .then(res => res)
+      .then(res => console.log(res))
       .catch(err => console.log("Trial form err: ", err));
-    this.props.history.push("/trial_countdown");
+
+    this.props.history.push(`/trial_countdown/${this.state.trialId}`);
   };
 
   render() {
