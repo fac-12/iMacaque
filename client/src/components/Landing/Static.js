@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Static extends Component {
   render() {
     return (
       <div>
-        <h1> Static Test </h1>
+        <Link to="/static_form"> Static Test </Link>
       </div>
     );
   }
