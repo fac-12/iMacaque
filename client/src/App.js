@@ -6,6 +6,8 @@ import StartTrialCountdown from "./components/Binary/Start_trial_countdown";
 import StartWebcam from "./components/Binary/StartWebcam";
 import BinaryPlus from "./components/Binary/Binary_plus";
 import ChoicesAppear from "./components/Binary/Choices_appear";
+import StaticTest from "./components/Static/Static_container";
+import Reward from "./components/Static/Reward";
 
 class App extends Component {
   render() {
@@ -26,6 +28,8 @@ class App extends Component {
             path="/choice_appear/:trialId"
             component={ChoicesAppear}
           />
+          <Route exact path="/static_test" component={StaticTest} />
+          <Route exact path="/static_test/reward/:letter" component={Reward} />
         </Switch>
       </BrowserRouter>
     );
