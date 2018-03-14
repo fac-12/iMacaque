@@ -5,7 +5,7 @@ class Static extends Component {
   render() {
     return (
       <div>
-        <Link to="/static_test"> Static Test </Link>
+        <Link to="/static_form"> Static Test </Link>
       </div>
     );
   }

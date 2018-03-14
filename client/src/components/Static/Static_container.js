@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { browserHistory } from "react-router";
+
 class Static_container extends Component {
   Assets = [
     {
@@ -41,11 +43,15 @@ class Static_container extends Component {
   ];
 
   render() {
+    const id = this.props.match.params.monkeyId;
     return (
       <div>
         <h1> Static Test </h1>
         {this.Assets.map(item => (
-          <Link to={`/static_test/reward/${item.letter}`} key={item.letter}>
+          <Link
+            to={`/${id}/static_test/reward/${item.letter}`}
+            key={item.letter}
+          >
             <img src={item.fractals} />
           </Link>
         ))}

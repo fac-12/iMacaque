@@ -6,6 +6,7 @@ import StartTrialCountdown from "./components/Binary/Start_trial_countdown";
 import StartWebcam from "./components/Binary/StartWebcam";
 import BinaryPlus from "./components/Binary/Binary_plus";
 import ChoicesAppear from "./components/Binary/Choices_appear";
+import StaticForm from "./components/Static/Static_form";
 import StaticTest from "./components/Static/Static_container";
 import Reward from "./components/Static/Reward";
 
@@ -28,8 +29,13 @@ class App extends Component {
             path="/choice_appear/:trialId"
             component={ChoicesAppear}
           />
-          <Route exact path="/static_test" component={StaticTest} />
-          <Route exact path="/static_test/reward/:letter" component={Reward} />
+          <Route exact path="/static_form" component={StaticForm} />
+          <Route exact path="/:monkeyId/static_test" component={StaticTest} />
+          <Route
+            exact
+            path="/:monkeyId/static_test/reward/:letter"
+            component={Reward}
+          />
         </Switch>
       </BrowserRouter>
     );
