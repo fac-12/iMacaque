@@ -6,7 +6,7 @@ class StaticData extends Component {
     super(props);
   }
   render() {
-    if (!this.state.data) return <h3>Loading...</h3>;
+    if (!this.props.data) return <h3>Loading...</h3>;
     return (
       <div>
         <table>
