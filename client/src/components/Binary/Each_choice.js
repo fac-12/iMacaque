@@ -6,22 +6,25 @@ class EachChoice extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 0
+      id: 0,
+      count: 0
     };
   }
 
   componentDidMount() {
-    let count = 0;
-    console.log("countttt: ", count);
-    if (count === this.props.trial_choices.length) {
-      clearInterval(this.timer);
-      console.log("wronggg");
-    }
     this.timer = setInterval(() => {
-      count += 1;
-      this.setState({ id: count });
-      console.log("interval count: ", count);
+      this.setState({ id: this.state.count, count: this.state.count + 1 });
+      console.log("interval count: ", this.state.count);
     }, 2000);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps, nextState);
+    if (this.state.count === this.props.trial_choices.length) {
+      console.log("wronggg SHOUDL STOP TIME");
+      clearInterval(this.timer);
+    }
+    return true;
   }
 
   render() {
@@ -29,9 +32,15 @@ class EachChoice extends Component {
     if (this.props.trial_choices.length === 0) return <h3>Loading...</h3>;
     return (
       <div>
-        <p>{this.props.trial_choices[this.state.id].Choices_left}</p>
-        <p>{this.props.trial_choices[this.state.id].Choices_right}</p>
-        hello
+        {this.props.trial_choices.length > this.state.count ? (
+          <div>
+            <p>{this.props.trial_choices[this.state.id].Choices_left}</p>
+            <p>{this.props.trial_choices[this.state.id].Choices_right}</p>
+            hello
+          </div>
+        ) : (
+          <div> Done! </div>
+        )}
       </div>
     );
   }

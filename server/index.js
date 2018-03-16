@@ -17,6 +17,8 @@ require("env2")("./config.env");
 mongoose.connect(process.env.DATABASE_URL);
 mongoose.promise = global.promise;
 
+app.use(routes);
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "..", "client", "build")));
   app.get("*", (req, res) => {
@@ -30,5 +32,4 @@ app.listen(port, () => {
   console.log(`App is listening on ${port}`);
 });
 
-app.use(routes);
 module.exports = app;

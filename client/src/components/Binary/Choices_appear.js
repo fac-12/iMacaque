@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { browserHistory } from "react-router";
 import axios from "axios";
+import EachChoice from "./Each_choice";
 
 class ChoicesAppear extends Component {
   constructor(props) {
@@ -22,16 +23,16 @@ class ChoicesAppear extends Component {
       });
   }
   render() {
-    return (
-      <div>
-        {this.state.choices.map((data, index) => (
-          <div key={index}>
-            <p>{data.Choices_left}</p>
-            <p>{data.Choices_right}</p>
-          </div>
-        ))}
-      </div>
-    );
+    const choices = this.state.choices;
+
+    const conditionalRender =
+      choices.length > 0 ? (
+        <EachChoice trial_choices={this.state.choices} />
+      ) : (
+        <div>loading...</div>
+      );
+
+    return <div>{conditionalRender}</div>;
   }
 }
 
