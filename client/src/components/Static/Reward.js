@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { browserHistory } from "react-router";
-
+import axios from "axios";
 class Reward extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { monkeyId: "", selected: "" };
+  }
   Assets = {
     A: require("../../assets/rewards/A.mp4"),
     B: require("../../assets/rewards/B.mp4"),
@@ -12,16 +16,17 @@ class Reward extends Component {
     I: require("../../assets/rewards/I.mp4")
   };
 
-  componentWillUnmount() {
-    console.log("videoooo: ", this.rewardVideo);
-    console.log("videoooo: ", this.rewardVideo.duration);
-    // const minutes = parseInt(this.rewardVideo.duration / 60, 10);
-    // const seconds = this.rewardVideo.duration % 60;
-    // console.log(`${minutes} : ${seconds}`);
-  }
-
   videoEnd = () => {
-    this.props.history.push(`/${this.props.match.params.letter}/static_test`);
+    const staticData = {
+      monkeyId: this.props.match.params.monkeyId,
+      reward: this.props.match.params.letter
+    };
+    console.log("static data: ", staticData);
+    axios
+      .post("/static_trial", staticData)
+      .then(res => console.log(res))
+      .catch(err => err);
+    this.props.history.push(`/${this.props.match.params.monkeyId}/static_test`);
   };
 
   render() {

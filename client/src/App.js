@@ -9,6 +9,7 @@ import ChoicesAppear from "./components/Binary/Choices_appear";
 import StaticForm from "./components/Static/Static_form";
 import StaticTest from "./components/Static/Static_container";
 import Reward from "./components/Static/Reward";
+import StaticDataContainer from "./components/Static_data/Static_data_container";
 
 class App extends Component {
   render() {
@@ -35,6 +36,11 @@ class App extends Component {
             exact
             path="/:monkeyId/static_test/reward/:letter"
             component={Reward}
+          />
+          <Route
+            exact
+            path="/all_static_data"
+            component={StaticDataContainer}
           />
         </Switch>
       </BrowserRouter>
