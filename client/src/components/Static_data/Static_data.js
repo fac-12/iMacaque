@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import { parseDateTime } from "../../helpers/date_conversion";
-
 class StaticData extends Component {
   constructor(props) {
     super(props);
   }
   render() {
-    console.log("propss: ", this.props.data);
-    console.log("datatt: ", this.props.data.timestamp);
+    if (!this.state.data) return <h3>Loading...</h3>;
     return (
       <div>
         <table>
