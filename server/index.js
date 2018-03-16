@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require("env2")("./config.env");
 
 mongoose.connect(process.env.DATABASE_URL);
+mongoose.promise = global.promise;
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "..", "client", "build")));

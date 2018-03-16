@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 
+mongoose.set("debug", true);
 const { Schema } = mongoose;
 
 const staticDataSchema = new Schema({
   monkeyId: String,
-  selected: String,
+  reward: String,
   timestamp: Date
 });
 
-mongoose.model("staticData", staticDataSchema);
+const staticData = mongoose.model("staticData", staticDataSchema);
+
+module.exports = staticData;

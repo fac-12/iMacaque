@@ -1,17 +1,12 @@
-// const mongoose = require("mongoose");
-//
-// const staticData = mongoose.model("staticData");
-// const { connection } = mongoose;
-// exports.get = (req, res) => {
-//   connection.collection("staticData").find({}, (err, data) => {
-//     console.log(data);
-//   });
-// };
 const mongoose = require("mongoose");
 
-const staticData = mongoose.model("staticData");
+mongoose.connect(process.env.DATABASE_URL);
+const { connection } = mongoose;
 exports.get = (req, res) => {
-  staticData.findOne({ reward: "A" }, (err, data) => {
-    console.log(data);
-  });
+  connection
+    .collection("staticData")
+    .find({})
+    .toArray((err, obj) => {
+      res.send(obj);
+    });
 };
