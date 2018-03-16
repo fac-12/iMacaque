@@ -23,11 +23,16 @@ class ChoicesAppear extends Component {
       });
   }
   render() {
-    return (
-      <div>
+    const choices = this.state.choices;
+
+    const conditionalRender =
+      choices.length > 0 ? (
         <EachChoice trial_choices={this.state.choices} />
-      </div>
-    );
+      ) : (
+        <div>loading...</div>
+      );
+
+    return <div>{conditionalRender}</div>;
   }
 }
 
