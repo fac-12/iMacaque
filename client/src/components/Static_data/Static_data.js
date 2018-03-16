@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class StaticData extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     if (this.props.data.length === 0) return <h3>Loading...</h3>;
     return (
