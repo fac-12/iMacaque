@@ -47,17 +47,21 @@ Other data that is not time based that needs to be collected:
 
 ## The App
 
+### Design
+
+A prototype of the app:
+![LWDemo](client/src/assets/iMacaque.gif)
+
+---
+
 ### Tech Stack
+
+![SA](client/src/assets/softwarearchitecture.png)
 
 * MongoDB /mLabs / Mongoose
 * React
 * Node / Express
 * Heroku
-
-### Design
-
-A prototype of the app:
-![LWDemo](client/src/assets/iMacaque.gif)
 
 ---
 
