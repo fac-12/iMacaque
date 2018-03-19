@@ -19,9 +19,11 @@ class Reward extends Component {
   videoEnd = () => {
     const staticData = {
       monkeyId: this.props.match.params.monkeyId,
-      reward: this.props.match.params.letter
+      reward: this.props.match.params.letter,
+      videoDuration: this.rewardVideo.duration
     };
     console.log("static data: ", staticData);
+    console.log("video duration", this.rewardVideo.duration);
     axios
       .post("/static_trial", staticData)
       .then(res => console.log(res))

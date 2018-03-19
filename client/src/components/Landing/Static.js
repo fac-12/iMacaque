@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./landing.css";
 
 class Static extends Component {
   render() {
     return (
-      <div>
-        <Link to="/static_form"> Static Test </Link>
+      <div className="landing__buttons">
+        <Link to="/static_form" className="landing__button">
+          Static Test
+        </Link>
       </div>
     );
   }

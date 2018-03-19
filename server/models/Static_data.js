@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 const staticDataSchema = new Schema({
   monkeyId: String,
   reward: String,
+  videoDuration: String,
   timestamp: Date
 });
 
