@@ -18,6 +18,7 @@ class Reward extends Component {
 
   videoEnd = () => {
     const staticData = {
+      trialType: "Static",
       monkeyId: this.props.match.params.monkeyId,
       reward: this.props.match.params.letter,
       videoDuration: this.rewardVideo.duration

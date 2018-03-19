@@ -9,8 +9,11 @@ class StaticData extends Component {
         <table>
           <thead>
             <tr>
+              <td>Trial type </td>
               <td>Monkey ID</td>
+              <td>Reward position</td>
               <td>Reward selected</td>
+              <td>Reward duration</td>
               <td>Date</td>
               <td>Time</td>
             </tr>
@@ -18,8 +21,10 @@ class StaticData extends Component {
           {this.props.data.map(data => (
             <tbody key={data._id}>
               <tr>
+                <td>{data.trialType}</td>
                 <td>{data.monkeyId}</td>
                 <td>{data.reward}</td>
+                <td>{data.videoDuration}</td>
                 <td>{data.timestamp.split("T")[0]}</td>
                 <td>{data.timestamp.split(/["T","."]+/)[1]}</td>
               </tr>

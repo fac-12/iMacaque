@@ -5,7 +5,10 @@ class HomeButton extends Component {
   render() {
     return (
       <div>
-        <Link to="/"> Home button </Link>
+        <Link to="/" className="home-button">
+          {" "}
+          Home button{" "}
+        </Link>
       </div>
     );
   }

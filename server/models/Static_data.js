@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const staticDataSchema = new Schema({
+  trialType: String,
   monkeyId: String,
   reward: String,
   videoDuration: String,
