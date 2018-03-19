@@ -10,9 +10,63 @@ import StaticForm from "./components/Static/Static_form";
 import StaticTest from "./components/Static/Static_container";
 import Reward from "./components/Static/Reward";
 import StaticDataContainer from "./components/Static_data/Static_data_container";
-
+import shuffle from "./helpers/shuffle";
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  Assets = [
+    {
+      letter: "A",
+      fractals: require("./assets/fractals/A.jpg"),
+      reward: require("./assets/rewards/A.mp4")
+    },
+    {
+      letter: "B",
+      fractals: require("./assets/fractals/B.jpg"),
+      reward: require("./assets/rewards/B.mp4")
+    },
+    {
+      letter: "C",
+      fractals: require("./assets/fractals/C.jpg"),
+      reward: require("./assets/rewards/C.mp4")
+    },
+    {
+      letter: "D",
+      fractals: require("./assets/fractals/D.jpg")
+      //  reward: require("./assets/rewards/D.mp4")
+    },
+    {
+      letter: "E",
+      fractals: require("./assets/fractals/E.jpg"),
+      reward: require("./assets/rewards/E.mp4")
+    },
+    {
+      letter: "F",
+      fractals: require("./assets/fractals/F.jpg"),
+      reward: require("./assets/rewards/F.mp4")
+    },
+    {
+      letter: "G",
+      fractals: require("./assets/fractals/G.jpg"),
+      reward: require("./assets/rewards/G.mp4")
+    },
+    {
+      letter: "H",
+      fractals: require("./assets/fractals/H.jpg")
+      //  reward: require("./assets/rewards/H.mp4")
+    },
+    {
+      letter: "I",
+      fractals: require("./assets/fractals/I.jpg"),
+      reward: require("./assets/rewards/I.mp4")
+    }
+  ];
+  displayedAssets = shuffle(this.Assets);
+
   render() {
+    console.log("sjajgjas: ", this.props.params);
     return (
       <BrowserRouter>
         <Switch>
@@ -31,11 +85,19 @@ class App extends Component {
             component={ChoicesAppear}
           />
           <Route exact path="/static_form" component={StaticForm} />
-          <Route exact path="/:monkeyId/static_test" component={StaticTest} />
+          <Route
+            exact
+            path="/:monkeyId/static_test"
+            render={props => (
+              <StaticTest displayedAssets={this.displayedAssets} {...props} />
+            )}
+          />
           <Route
             exact
             path="/:monkeyId/static_test/reward/:letter"
-            component={Reward}
+            render={props => (
+              <Reward displayedAssets={this.displayedAssets} {...props} />
+            )}
           />
           <Route
             exact

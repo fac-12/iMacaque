@@ -7,6 +7,7 @@ const staticDataSchema = new Schema({
   monkeyId: String,
   reward: String,
   videoDuration: String,
+  asestsPositions: Array,
   timestamp: Date
 });
 

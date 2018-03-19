@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 class StaticData extends Component {
   render() {
-    if (this.props.data.length === 0) return <h3>Loading...</h3>;
+    if (this.props.data.length === 0)
+      return <h3>You currently have no static tests...</h3>;
     return (
       <div>
         <table>
@@ -23,6 +24,7 @@ class StaticData extends Component {
               <tr>
                 <td>{data.trialType}</td>
                 <td>{data.monkeyId}</td>
+                <td>{data.asestsPositions}</td>
                 <td>{data.reward}</td>
                 <td>{data.videoDuration}</td>
                 <td>{data.timestamp.split("T")[0]}</td>
