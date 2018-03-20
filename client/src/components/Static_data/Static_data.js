@@ -15,6 +15,7 @@ class StaticData extends Component {
               <td>Reward position</td>
               <td>Reward selected</td>
               <td>Reward duration</td>
+              <td>Decision time</td>
               <td>Date</td>
               <td>Time</td>
             </tr>
@@ -27,6 +28,7 @@ class StaticData extends Component {
                 <td>{data.asestsPositions}</td>
                 <td>{data.reward}</td>
                 <td>{data.videoDuration}</td>
+                <td>{data.decisionTime}</td>
                 <td>{data.timestamp.split("T")[0]}</td>
                 <td>{data.timestamp.split(/["T","."]+/)[1]}</td>
               </tr>

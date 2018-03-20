@@ -8,6 +8,7 @@ const staticDataSchema = new Schema({
   reward: String,
   videoDuration: String,
   asestsPositions: Array,
+  decisionTime: String,
   timestamp: Date
 });
 

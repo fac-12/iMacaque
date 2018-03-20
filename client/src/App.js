@@ -94,7 +94,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/:monkeyId/static_test/reward/:letter"
+            path="/:monkeyId/static_test/reward/:letter/:decisionTime"
             render={props => (
               <Reward displayedAssets={this.displayedAssets} {...props} />
             )}
