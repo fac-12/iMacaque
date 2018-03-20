@@ -1,0 +1,31 @@
+.static-form {
+  text-align: center;
+}
+.static-form__label {
+  font-size: 2rem;
+}
+.static-form__input {
+  display: block;
+  width: 400px;
+  height: 50px;
+  margin: 1rem auto;
+  font-size: 2rem;
+}
+.static-form__button {
+  background-color: #eb5757;
+  border: 1px solid #eb5757;
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  margin: 1rem;
+  font-size: 1.4rem;
+  color: white;
+}
+.static-fractals__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.static-fractals__images {
+  width: 259px;
+  height: 194px;
+}

@@ -1,0 +1,9 @@
+.static-data__table {
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+.static_data__table,
+.static-data__table-data {
+  border: 1px solid black;
+  padding: 0.5rem;
+}

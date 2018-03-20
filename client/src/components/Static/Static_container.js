@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { browserHistory } from "react-router";
 import shuffle from "../../helpers/shuffle";
-
+import "./Static.css";
 class Static_container extends Component {
   constructor(props) {
     super(props);
@@ -36,18 +36,20 @@ class Static_container extends Component {
   render() {
     const id = this.props.match.params.monkeyId;
     return (
-      <div>
-        <h1> Static Test </h1>
-        {this.props.displayedAssets.map(item => (
-          <Link
-            to={`/${id}/static_test/reward/${item.letter}/${
-              this.state.decisionTime
-            }`}
-            key={item.letter}
-          >
-            <img src={item.fractals} />
-          </Link>
-        ))}
+      <div className="static-fractals">
+        <h1> iMacaque - Static Test </h1>
+        <div className="static-fractals__container">
+          {this.props.displayedAssets.map(item => (
+            <Link
+              to={`/${id}/static_test/reward/${item.letter}/${
+                this.state.decisionTime
+              }`}
+              key={item.letter}
+            >
+              <img src={item.fractals} className="static-fractals__images" />
+            </Link>
+          ))}
+        </div>
       </div>
     );
   }
