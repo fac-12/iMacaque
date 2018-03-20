@@ -13,8 +13,7 @@
   border: 1px solid #eb5757;
 }
 .static-form__button {
-  background-color: #eb5757;
-  border: 1px solid #eb5757;
+  background-color: grey;
   padding: 1rem;
   text-decoration: none;
   color: black;
@@ -22,11 +21,21 @@
   font-size: 1.4rem;
   color: white;
 }
+.static-fractals__back-btn {
+  width: 60px;
+  background-color: black;
+  height: 24px;
+  font-size: 1rem;
+  border-bottom: 1px solid gray;
+}
+.static-fractals {
+  background-color: black;
+}
 .static-fractals__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 .static-fractals__images {
-  width: 259px;
-  height: 194px;
+  width: 100%;
+  height: 220px;
 }

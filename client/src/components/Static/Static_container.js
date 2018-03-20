@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { browserHistory } from "react-router";
 import shuffle from "../../helpers/shuffle";
+import StaticBackBtn from "./Back_button";
 import "./Static.css";
 class Static_container extends Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class Static_container extends Component {
     const id = this.props.match.params.monkeyId;
     return (
       <div className="static-fractals">
-        <h1> iMacaque - Static Test </h1>
+        <StaticBackBtn />
         <div className="static-fractals__container">
           {this.props.displayedAssets.map(item => (
             <Link

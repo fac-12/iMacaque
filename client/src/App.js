@@ -11,6 +11,7 @@ import StaticTest from "./components/Static/Static_container";
 import Reward from "./components/Static/Reward";
 import StaticDataContainer from "./components/Static_data/Static_data_container";
 import shuffle from "./helpers/shuffle";
+import "./App.css";
 class App extends Component {
   constructor(props) {
     super(props);
