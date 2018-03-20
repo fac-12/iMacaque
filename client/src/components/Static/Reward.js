@@ -6,22 +6,18 @@ class Reward extends Component {
     super(props);
     this.state = { monkeyId: "", selected: "" };
   }
-  Assets = {
-    A: require("../../assets/rewards/A.mp4"),
-    B: require("../../assets/rewards/B.mp4"),
-    C: require("../../assets/rewards/C.mp4"),
-    E: require("../../assets/rewards/E.mp4"),
-    F: require("../../assets/rewards/F.mp4"),
-    G: require("../../assets/rewards/G.mp4"),
-    I: require("../../assets/rewards/I.mp4")
-  };
-
+  arrayPositions = this.props.displayedAssets.map((data, i) => {
+    return this.props.displayedAssets[i].letter;
+  });
   videoEnd = () => {
     const staticData = {
+      trialType: "Static",
       monkeyId: this.props.match.params.monkeyId,
-      reward: this.props.match.params.letter
+      reward: this.props.match.params.letter,
+      videoDuration: this.rewardVideo.duration,
+      asestsPositions: this.arrayPositions,
+      decisionTime: this.props.match.params.decisionTime
     };
-    console.log("static data: ", staticData);
     axios
       .post("/static_trial", staticData)
       .then(res => console.log(res))
@@ -31,6 +27,11 @@ class Reward extends Component {
 
   render() {
     const letter = this.props.match.params.letter;
+    const letterChosen = this.props.displayedAssets.filter((data, i) => {
+      if (this.props.displayedAssets[i].letter === letter) {
+        return this.props.displayedAssets[i];
+      }
+    });
     return (
       <div>
         <video
@@ -42,7 +43,7 @@ class Reward extends Component {
             this.rewardVideo = vid;
           }}
         >
-          <source src={this.Assets[letter]} type="video/mp4" />
+          <source src={letterChosen[0].reward} type="video/mp4" />
         </video>
       </div>
     );

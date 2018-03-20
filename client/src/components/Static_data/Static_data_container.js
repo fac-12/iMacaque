@@ -23,7 +23,7 @@ class StaticDataContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Static data</h1>
+        <h1>iMacaque - Static data</h1>
         <StaticData data={this.state.static_data} />
         <HomeButton />
       </div>

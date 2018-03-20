@@ -1,60 +1,55 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { browserHistory } from "react-router";
-
+import shuffle from "../../helpers/shuffle";
+import "./Static.css";
 class Static_container extends Component {
-  Assets = [
-    {
-      letter: "A",
-      fractals: require("../../assets/fractals/A.jpg")
-    },
-    {
-      letter: "B",
-      fractals: require("../../assets/fractals/B.jpg")
-    },
-    {
-      letter: "C",
-      fractals: require("../../assets/fractals/C.jpg")
-    },
-    {
-      letter: "D",
-      fractals: require("../../assets/fractals/D.jpg")
-    },
-    {
-      letter: "E",
-      fractals: require("../../assets/fractals/E.jpg")
-    },
-    {
-      letter: "F",
-      fractals: require("../../assets/fractals/F.jpg")
-    },
-    {
-      letter: "G",
-      fractals: require("../../assets/fractals/G.jpg")
-    },
-    {
-      letter: "H",
-      fractals: require("../../assets/fractals/H.jpg")
-    },
-    {
-      letter: "I",
-      fractals: require("../../assets/fractals/I.jpg")
+  constructor(props) {
+    super(props);
+    this.state = {
+      decisionTime: ""
+    };
+  }
+  componentDidMount() {
+    this.totalSeconds = 0;
+    this.timer = setInterval(this.setTime, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+  pad = val => {
+    const valString = `${val}`;
+    if (valString.length < 2) {
+      return `0${valString}`;
     }
-  ];
+    return valString;
+  };
+  setTime = () => {
+    ++this.totalSeconds;
+    this.setState({
+      decisionTime: `${this.pad(parseInt(this.totalSeconds / 60))}:${this.pad(
+        this.totalSeconds % 60
+      )}`
+    });
+  };
 
   render() {
     const id = this.props.match.params.monkeyId;
     return (
-      <div>
-        <h1> Static Test </h1>
-        {this.Assets.map(item => (
-          <Link
-            to={`/${id}/static_test/reward/${item.letter}`}
-            key={item.letter}
-          >
-            <img src={item.fractals} />
-          </Link>
-        ))}
+      <div className="static-fractals">
+        <h1> iMacaque - Static Test </h1>
+        <div className="static-fractals__container">
+          {this.props.displayedAssets.map(item => (
+            <Link
+              to={`/${id}/static_test/reward/${item.letter}/${
+                this.state.decisionTime
+              }`}
+              key={item.letter}
+            >
+              <img src={item.fractals} className="static-fractals__images" />
+            </Link>
+          ))}
+        </div>
       </div>
     );
   }
