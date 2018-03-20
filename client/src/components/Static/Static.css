@@ -10,6 +10,7 @@
   height: 50px;
   margin: 1rem auto;
   font-size: 2rem;
+  border: 1px solid #eb5757;
 }
 .static-form__button {
   background-color: #eb5757;
