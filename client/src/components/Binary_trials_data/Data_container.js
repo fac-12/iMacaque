@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import HomeButton from "../Home_button";
+import BinaryTrialsData from "./Render_data";
 
 class TrialsDataContainer extends Component {
   constructor(props) {
@@ -21,10 +22,10 @@ class TrialsDataContainer extends Component {
   }
 
   render() {
-    console.log();
     return (
       <div>
         <h1>iMacaque - Binary Trials data</h1>
+        <BinaryTrialsData data={this.state.trials_data} />
         <HomeButton />
       </div>
     );

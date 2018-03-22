@@ -28,6 +28,9 @@ class Landing extends Component {
           <Link to="/all_static_data" className="landing__button">
             View static data
           </Link>
+          <Link to="/all_trials_data" className="landing__button">
+            View binary trials set
+          </Link>
           <Binary />
           <Static />
         </div>
