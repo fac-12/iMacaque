@@ -6,6 +6,7 @@ import StartTrialCountdown from "./components/Binary/Start_trial_countdown";
 import StartWebcam from "./components/Binary/StartWebcam";
 import BinaryPlus from "./components/Binary/Binary_plus";
 import ChoicesAppear from "./components/Binary/Choices_appear";
+import BinaryReward from "./components/Binary/Binary_reward";
 import StaticForm from "./components/Static/Static_form";
 import StaticTest from "./components/Static/Static_container";
 import Reward from "./components/Static/Reward";
@@ -87,6 +88,13 @@ class App extends Component {
                 displayedAssets={this.displayedAssets}
                 {...props}
               />
+            )}
+          />
+          <Route
+            exact
+            path="/binary_trial/:trialId/reward/:letter"
+            render={props => (
+              <BinaryReward displayedAssets={this.displayedAssets} {...props} />
             )}
           />
           <Route exact path="/static_form" component={StaticForm} />

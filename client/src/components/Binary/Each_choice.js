@@ -15,31 +15,60 @@ class EachChoice extends Component {
     this.timer = setInterval(() => {
       this.setState({ id: this.state.count, count: this.state.count + 1 });
       console.log("interval count: ", this.state.count);
-    }, 5000);
+    }, 20000);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log(nextProps, nextState);
     if (this.state.count === this.props.trial_choices.length) {
-      console.log("wronggg SHOUDL STOP TIME");
+      console.log("wronggg SHOULD STOP TIME");
       clearInterval(this.timer);
     }
     return true;
   }
-
+  letterChosen = letter =>
+    this.props.displayedAssets.filter((data, i) => {
+      if (this.props.displayedAssets[i].letter === letter) {
+        return this.props.displayedAssets[i];
+      }
+    });
   render() {
-    console.log(this.props.trial_choices.length);
+    const id = this.props.match.params.trialId;
     if (this.props.trial_choices.length === 0) return <h3>Loading...</h3>;
     return (
       <div>
-        {this.props.trial_choices.length > this.state.count ? (
+        {this.props.trial_choices.length >= this.state.count ? (
           <div>
-            <p>{this.props.trial_choices[this.state.id].Choices_left}</p>
-            <p>{this.props.trial_choices[this.state.id].Choices_right}</p>
-            hello
+            <Link
+              to={`/binary_trial/${id}/reward/${
+                this.props.trial_choices[this.state.id].Choices_left
+              }`}
+            >
+              <img
+                src={
+                  this.letterChosen(
+                    this.props.trial_choices[this.state.id].Choices_left
+                  )[0].fractals
+                }
+              />
+            </Link>
+            <span>+</span>
+            <Link
+              to={`/binary_trial/${id}/reward/${
+                this.props.trial_choices[this.state.id].Choices_right
+              }`}
+            >
+              <img
+                src={
+                  this.letterChosen(
+                    this.props.trial_choices[this.state.id].Choices_right
+                  )[0].fractals
+                }
+              />
+            </Link>
           </div>
         ) : (
-          <div> Done! </div>
+          <div>done</div>
         )}
       </div>
     );
