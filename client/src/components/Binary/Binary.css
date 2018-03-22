@@ -1,0 +1,43 @@
+.binary {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.binary__form-input {
+  display: block;
+  width: 400px;
+  height: 40px;
+  margin: 1rem auto;
+  font-size: 2rem;
+  border: 1px solid #eb5757;
+}
+.binary__form-submit {
+  background-color: grey;
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  margin: 1rem;
+  font-size: 1.4rem;
+  color: white;
+}
+.binary-countdown,
+.binary-plus {
+  text-align: center;
+  font-size: 5rem;
+  margin: 10rem auto;
+}
+.each-choice {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5rem;
+}
+.each-choice__image {
+  width: 350px;
+  height: 400px;
+}
+.each-choice__span {
+  font-size: 3rem;
+  margin: 0 1rem;
+  line-height: 1rem;
+}

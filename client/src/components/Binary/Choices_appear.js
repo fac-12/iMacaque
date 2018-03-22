@@ -24,10 +24,12 @@ class ChoicesAppear extends Component {
   }
   render() {
     const choices = this.state.choices;
-
     const conditionalRender =
       choices.length > 0 ? (
-        <EachChoice trial_choices={this.state.choices} />
+        <EachChoice
+          trial_choices={this.state.choices}
+          displayedAssets={this.props.displayedAssets}
+        />
       ) : (
         <div>loading...</div>
       );

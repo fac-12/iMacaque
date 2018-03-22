@@ -6,10 +6,12 @@ import StartTrialCountdown from "./components/Binary/Start_trial_countdown";
 import StartWebcam from "./components/Binary/StartWebcam";
 import BinaryPlus from "./components/Binary/Binary_plus";
 import ChoicesAppear from "./components/Binary/Choices_appear";
+import BinaryReward from "./components/Binary/Binary_reward";
 import StaticForm from "./components/Static/Static_form";
 import StaticTest from "./components/Static/Static_container";
 import Reward from "./components/Static/Reward";
 import StaticDataContainer from "./components/Static_data/Static_data_container";
+import TrialsDataContainer from "./components/Binary_trials_data/Data_container";
 import shuffle from "./helpers/shuffle";
 import "./App.css";
 class App extends Component {
@@ -82,7 +84,19 @@ class App extends Component {
           <Route
             exact
             path="/choice_appear/:trialId"
-            component={ChoicesAppear}
+            render={props => (
+              <ChoicesAppear
+                displayedAssets={this.displayedAssets}
+                {...props}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/binary_trial/:trialId/reward/:letter"
+            render={props => (
+              <BinaryReward displayedAssets={this.displayedAssets} {...props} />
+            )}
           />
           <Route exact path="/static_form" component={StaticForm} />
           <Route
@@ -103,6 +117,11 @@ class App extends Component {
             exact
             path="/all_static_data"
             component={StaticDataContainer}
+          />
+          <Route
+            exact
+            path="/all_trials_data"
+            component={TrialsDataContainer}
           />
         </Switch>
       </BrowserRouter>
