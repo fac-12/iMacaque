@@ -11,6 +11,7 @@ import StaticForm from "./components/Static/Static_form";
 import StaticTest from "./components/Static/Static_container";
 import Reward from "./components/Static/Reward";
 import StaticDataContainer from "./components/Static_data/Static_data_container";
+import TrialsDataContainer from "./components/Binary_trials_data/Data_container";
 import shuffle from "./helpers/shuffle";
 import "./App.css";
 class App extends Component {
@@ -116,6 +117,11 @@ class App extends Component {
             exact
             path="/all_static_data"
             component={StaticDataContainer}
+          />
+          <Route
+            exact
+            path="/all_trials_data"
+            component={TrialsDataContainer}
           />
         </Switch>
       </BrowserRouter>

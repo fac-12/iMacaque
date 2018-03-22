@@ -3,6 +3,7 @@ import axios from "axios";
 import { browserHistory } from "react-router";
 import setTrial from "../../helpers/setTrial";
 import randomId from "../../helpers/random_id";
+import HomeButton from "../Home_button";
 import "./Binary.css";
 class Trial_form extends Component {
   constructor(props) {
@@ -60,6 +61,7 @@ class Trial_form extends Component {
           />
           <div>{setTrial(this.state.numberOfTrials)}</div>
           <input type="submit" value="submit" className="binary__form-submit" />
+          <HomeButton />
         </form>
       </div>
     );
