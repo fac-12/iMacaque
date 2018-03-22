@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class HomeButton extends Component {
   render() {
     return (
-      <div>
+      <div className="home-button__div">
         <Link to="/" className="home-button">
           {" "}
           Home button{" "}
