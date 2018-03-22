@@ -26,3 +26,18 @@
   font-size: 5rem;
   margin: 10rem auto;
 }
+.each-choice {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5rem;
+}
+.each-choice__image {
+  width: 350px;
+  height: 400px;
+}
+.each-choice__span {
+  font-size: 3rem;
+  margin: 0 1rem;
+  line-height: 1rem;
+}

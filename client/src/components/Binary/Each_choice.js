@@ -15,7 +15,7 @@ class EachChoice extends Component {
     this.timer = setInterval(() => {
       this.setState({ id: this.state.count, count: this.state.count + 1 });
       console.log("interval count: ", this.state.count);
-    }, 20000);
+    }, 5000);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -36,7 +36,7 @@ class EachChoice extends Component {
     const id = this.props.match.params.trialId;
     if (this.props.trial_choices.length === 0) return <h3>Loading...</h3>;
     return (
-      <div>
+      <div className="each-choice">
         {this.props.trial_choices.length >= this.state.count ? (
           <div>
             <Link
@@ -45,6 +45,7 @@ class EachChoice extends Component {
               }`}
             >
               <img
+                className="each-choice__image"
                 src={
                   this.letterChosen(
                     this.props.trial_choices[this.state.id].Choices_left
@@ -52,13 +53,14 @@ class EachChoice extends Component {
                 }
               />
             </Link>
-            <span>+</span>
+            <span className="each-choice__span">+</span>
             <Link
               to={`/binary_trial/${id}/reward/${
                 this.props.trial_choices[this.state.id].Choices_right
               }`}
             >
               <img
+                className="each-choice__image"
                 src={
                   this.letterChosen(
                     this.props.trial_choices[this.state.id].Choices_right
