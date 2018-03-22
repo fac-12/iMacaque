@@ -24,7 +24,7 @@ class StartTrialCountdown extends Component {
 
   render() {
     return (
-      <div>
+      <div className="binary-countdown">
         <p>Trial starts in </p>
         <Countdown date={Date.now() + 5000} renderer={this.renderer} />
       </div>

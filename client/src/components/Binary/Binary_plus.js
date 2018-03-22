@@ -10,7 +10,7 @@ class BinaryPlus extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="binary-plus">
         <h1>+</h1>
       </div>
     );

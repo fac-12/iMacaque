@@ -82,7 +82,12 @@ class App extends Component {
           <Route
             exact
             path="/choice_appear/:trialId"
-            component={ChoicesAppear}
+            render={props => (
+              <ChoicesAppear
+                displayedAssets={this.displayedAssets}
+                {...props}
+              />
+            )}
           />
           <Route exact path="/static_form" component={StaticForm} />
           <Route

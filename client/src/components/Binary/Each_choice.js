@@ -15,7 +15,7 @@ class EachChoice extends Component {
     this.timer = setInterval(() => {
       this.setState({ id: this.state.count, count: this.state.count + 1 });
       console.log("interval count: ", this.state.count);
-    }, 2000);
+    }, 5000);
   }
 
   shouldComponentUpdate(nextProps, nextState) {

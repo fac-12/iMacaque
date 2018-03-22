@@ -3,6 +3,7 @@ import axios from "axios";
 import { browserHistory } from "react-router";
 import setTrial from "../../helpers/setTrial";
 import randomId from "../../helpers/random_id";
+import "./Binary.css";
 class Trial_form extends Component {
   constructor(props) {
     super(props);
@@ -32,27 +33,33 @@ class Trial_form extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Trial form</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="monkeyId">Monkey ID</label>
+      <div className="binary">
+        <h2>iMacaque - Binary Trial form</h2>
+        <form onSubmit={this.handleSubmit} className="binary__form">
+          <label htmlFor="monkeyId" className="binary__form-label">
+            Monkey ID
+          </label>
           <input
             type="text"
             id="monkeyId"
             name="monkeyId"
             value={this.state.monkeyId}
             onChange={this.handleChange}
+            className="binary__form-input"
           />
-          <label htmlFor="no_of_trial">Number of trial</label>
+          <label htmlFor="no_of_trial" className="binary__form-label">
+            Number of trial
+          </label>
           <input
             type="number"
             id="no_of_trial"
             name="numberOfTrials"
             value={this.state.numberOfTrials}
             onChange={this.handleChange}
+            className="binary__form-input"
           />
-          {setTrial(this.state.numberOfTrials)}
-          <input type="submit" value="submit" />
+          <div>{setTrial(this.state.numberOfTrials)}</div>
+          <input type="submit" value="submit" className="binary__form-submit" />
         </form>
       </div>
     );

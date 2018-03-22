@@ -5,11 +5,27 @@ const setTrial = num => {
   for (let i = 0; i < num; i++) {
     inputs.push(
       <div key={i}>
-        <p>{i}</p>
-        <label htmlFor={i}>Choice left</label>
-        <input className="inputs" type="text" id={i} name={`choiceLeft${i}`} />
-        <label htmlFor={i}>Choice right</label>
-        <input className="inputs" type="text" id={i} name={`choiceRight${i}`} />
+        <label htmlFor={i} className="binary__form-label">
+          Choice left
+        </label>{" "}
+        <span>{i}</span>
+        <input
+          className="binary__form-input"
+          type="text"
+          id={i}
+          name={`choiceLeft${i}`}
+        />
+        <label htmlFor={i} className="binary__form-label">
+          Choice right
+        </label>{" "}
+        <span>{i}</span>
+        <input
+          className="inputs"
+          type="text"
+          id={i}
+          name={`choiceRight${i}`}
+          className="binary__form-input"
+        />
       </div>
     );
   }
