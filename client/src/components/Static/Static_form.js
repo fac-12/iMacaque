@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { browserHistory } from "react-router";
+import HomeButton from "../Home_button";
 import "./Static.css";
 class BinaryForm extends React.Component {
   constructor(props) {
@@ -19,19 +20,22 @@ class BinaryForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="static-form">
-        <h1>iMacaque - Static test form</h1>
-        <label className="static-form__label">
-          Monkey ID
-          <input
-            className="static-form__input"
-            type="text"
-            value={this.state.monkeyId}
-            onChange={this.handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit" className="static-form__button" />
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit} className="static-form">
+          <h1>iMacaque - Static test form</h1>
+          <label className="static-form__label">
+            Monkey ID
+            <input
+              className="static-form__input"
+              type="text"
+              value={this.state.monkeyId}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type="submit" value="Submit" className="static-form__button" />
+          <HomeButton />
+        </form>
+      </div>
     );
   }
 }

@@ -67,7 +67,6 @@ class App extends Component {
   displayedAssets = shuffle(this.Assets);
 
   render() {
-    console.log("sjajgjas: ", this.props.params);
     return (
       <BrowserRouter>
         <Switch>
