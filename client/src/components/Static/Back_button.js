@@ -12,7 +12,7 @@ class StaticBackBtn extends Component {
   handleClick = () => {
     this.setState({ count: this.state.count + 1 });
     console.log("countttt: ", this.state.count);
-    if (this.state.count === 8) {
+    if (this.state.count === 10) {
       console.log("clickedddd");
       window.location = "/";
     }

@@ -4,7 +4,6 @@ import axios from "axios";
 class Reward extends Component {
   constructor(props) {
     super(props);
-    this.state = { monkeyId: "", selected: "" };
   }
   arrayPositions = this.props.displayedAssets.map((data, i) => {
     return this.props.displayedAssets[i].letter;

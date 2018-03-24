@@ -37,8 +37,8 @@ class App extends Component {
     },
     {
       letter: "D",
-      fractals: require("./assets/fractals/D.jpg")
-      //  reward: require("./assets/rewards/D.mp4")
+      fractals: require("./assets/fractals/D.jpg"),
+      reward: require("./assets/rewards/D.mp4")
     },
     {
       letter: "E",
@@ -57,8 +57,8 @@ class App extends Component {
     },
     {
       letter: "H",
-      fractals: require("./assets/fractals/H.jpg")
-      //  reward: require("./assets/rewards/H.mp4")
+      fractals: require("./assets/fractals/H.jpg"),
+      reward: require("./assets/rewards/H.mp4")
     },
     {
       letter: "I",

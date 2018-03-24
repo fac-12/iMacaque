@@ -10,14 +10,26 @@ class Trial_form extends Component {
     super(props);
     this.state = { trialId: "", monkeyId: "", numberOfTrials: 0, choices: [] };
   }
-
+  validation = input => {
+    const regex = /[A,B,C,D,E,F,G,H,I]/g;
+    const testRegex = regex.test(input);
+    if (!testRegex || input.length !== 1) {
+      return (
+        <p>Choices can only be enter one of these letters: A,B,C,D,E,F,G,H,I</p>
+      );
+    }
+  };
   handleChange = event => {
     const target = event.target;
-    this.setState({ trialId: randomId(), [target.name]: target.value });
+    this.setState({
+      trialId: randomId(),
+      [target.name]: target.value.toUpperCase()
+    });
   };
 
   handleSubmit = event => {
     event.preventDefault();
+    this.validation();
     for (var i = 0; i < this.state.numberOfTrials; i++) {
       this.state.choices.push({
         Choices_left: event.target["choiceLeft" + i].value,
